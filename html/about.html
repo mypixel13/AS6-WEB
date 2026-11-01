@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameStore - About Us</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../assignment5.css">
+    <link rel="icon" href="../images/game1.jpg">
+    <link rel="stylesheet" href="../assignment6.css">
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js" defer></script>
+    <script src="../js/assignment6.js" defer></script>
+</head>
+
+<body>
+<div id="scroll-progress" role="progressbar" aria-label="Page scroll progress"
+     aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div></div></div>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<div class="page">
+
+    <header class="site-header navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand logo" href="index.html">GameStore</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-navigation" aria-controls="main-navigation" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <nav class="collapse navbar-collapse" id="main-navigation" aria-label="Main navigation">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Store</a></li>
+                    <li class="nav-item"><a href="catalog.html" class="nav-link">Catalog</a></li>
+                    <li class="nav-item"><a href="cart.html" class="nav-link">Cart <span class="cart-count" aria-label="Games in cart">0</span></a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link active" aria-current="page">About Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="site-tools" aria-label="Display and sound settings">
+        <span class="demo-label">Student demo store</span>
+        <button id="theme-toggle" class="btn btn-outline-light btn-sm" type="button" aria-pressed="false">Day theme</button>
+        <button id="sound-toggle" class="btn btn-outline-light btn-sm" type="button" aria-pressed="false">Sound: off</button>
+    </div>
+    <p id="storage-notice" class="storage-notice" role="status" hidden>Browser storage is unavailable. Your selections will be lost when you leave this page.</p>
+    <noscript><p class="storage-notice">Please enable JavaScript to use the catalog and checkout.</p></noscript>
+
+    <div class="row g-0 flex-grow-1">
+
+    <aside class="sidebar col-12 col-lg-2 p-3 p-lg-4">
+
+        <h3>About</h3>
+
+        <ul class="ps-3">
+            <li class="mb-2">Our Team</li>
+            <li class="mb-2">GameStore</li>
+            <li class="mb-2">Advantages</li>
+        </ul>
+
+    </aside>
+
+    <main id="main-content" class="col-12 col-lg-10 container-fluid px-2 px-sm-3 px-lg-4 py-3 py-lg-4">
+
+        <section class="intro p-3 mt-lg-4">
+
+            <h1>About GameStore</h1>
+
+            <p>
+                GameStore is a small online game store created by students.
+                Our goal is to make finding and buying games simple and enjoyable.
+            </p>
+
+        </section>
+
+        <section class="mt-3 mt-lg-4">
+
+            <h2>Our Team</h2>
+
+            <div class="row g-3">
+            <div class="col-12 col-lg-6">
+            <article class="team-card card h-100 p-3">
+
+                <img id="my-photo"
+                     src="../images/isl.jpg"
+                     alt="Islam">
+
+                <div>
+                    <h3>Islam</h3>
+
+                    <p>
+                        Responsible for creating the Store and About Us pages.
+                    </p>
+                </div>
+
+            </article>
+            </div>
+
+            <div class="col-12 col-lg-6">
+            <article class="team-card card h-100 p-3">
+
+                <div class="profile-placeholder">B</div>
+
+                <div>
+                    <h3>Bekzat</h3>
+
+                    <p>
+                        Responsible for creating the Catalog and Cart pages.
+                    </p>
+                </div>
+
+            </article>
+            </div>
+            </div>
+
+        </section>
+
+        <section class="mt-4">
+
+            <h2>GameStore vs Competitors</h2>
+            <p class="demo-note">Original Assignment 4 example table. These are sample claims, not verified comparisons or available services.</p>
+
+            <div class="table-responsive">
+            <table class="table table-dark table-striped table-bordered align-middle">
+
+                <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>GameStore</th>
+                    <th>Steam</th>
+                    <th>Epic Games</th>
+                </tr>
+                </thead>
+
+                <tbody>
+
+                <tr>
+                    <td>Prices</td>
+                    <td>10-15% lower</td>
+                    <td>Average</td>
+                    <td>Frequent discounts</td>
+                </tr>
+
+                <tr>
+                    <td>Support</td>
+                    <td>24/7 chat</td>
+                    <td>Tickets</td>
+                    <td>Email</td>
+                </tr>
+
+                <tr>
+                    <td>Localization</td>
+                    <td>Full Russian</td>
+                    <td>Partial</td>
+                    <td>Partial</td>
+                </tr>
+
+                </tbody>
+
+            </table>
+            </div>
+
+        </section>
+
+        <section class="mt-4">
+
+            <h2>FAQ</h2>
+            <p class="demo-note">These answers describe the project concept. Payment and support are demonstrations.</p>
+
+            <div class="accordion-item">
+                <button class="accordion-question" type="button">How do I buy a game?</button>
+                <div class="accordion-answer"><p>Choose a game in the catalog, add it to the cart and complete the checkout.</p></div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-question" type="button">Which payment methods do you accept?</button>
+                <div class="accordion-answer"><p>You can pay with a credit card, Kaspi or PayPal.</p></div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-question" type="button">How can I contact support?</button>
+                <div class="accordion-answer"><p>Our support chat works 24/7.</p></div>
+            </div>
+
+        </section>
+
+        <section class="team-member p-3 mt-4">
+
+            <h2>Why Choose GameStore?</h2>
+
+            <ul>
+                <li>Simple interface</li>
+                <li>Easy game search</li>
+                <li>Useful categories</li>
+                <li>Convenient shopping experience</li>
+            </ul>
+
+        </section>
+
+    </main>
+
+    </div>
+
+    <footer class="py-3 px-2">
+        <p>&copy; 2026 GameStore. Team: Islam, Bekzat</p>
+    </footer>
+
+</div>
+
+<div id="status-message" class="status-message" role="status" aria-live="polite" aria-atomic="true"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/script.js"></script>
+<script src="../js/assignment5.js"></script>
+</body>
+
+</html>

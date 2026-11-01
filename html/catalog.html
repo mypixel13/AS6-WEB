@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameStore - Catalog</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../assignment5.css">
+    <link rel="icon" href="../images/game1.jpg">
+    <link rel="stylesheet" href="../assignment6.css">
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js" defer></script>
+    <script src="../js/assignment6.js" defer></script>
+</head>
+
+<body>
+<div id="scroll-progress" role="progressbar" aria-label="Page scroll progress"
+     aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div></div></div>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<div class="page">
+
+    <header class="site-header navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand logo" href="index.html">GameStore</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-navigation" aria-controls="main-navigation" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <nav class="collapse navbar-collapse" id="main-navigation" aria-label="Main navigation">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Store</a></li>
+                    <li class="nav-item"><a href="catalog.html" class="nav-link active" aria-current="page">Catalog</a></li>
+                    <li class="nav-item"><a href="cart.html" class="nav-link">Cart <span class="cart-count" aria-label="Games in cart">0</span></a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="site-tools" aria-label="Display and sound settings">
+        <span class="demo-label">Student demo store</span>
+        <button id="theme-toggle" class="btn btn-outline-light btn-sm" type="button" aria-pressed="false">Day theme</button>
+        <button id="sound-toggle" class="btn btn-outline-light btn-sm" type="button" aria-pressed="false">Sound: off</button>
+    </div>
+    <p id="storage-notice" class="storage-notice" role="status" hidden>Browser storage is unavailable. Your selections will be lost when you leave this page.</p>
+    <noscript><p class="storage-notice">Please enable JavaScript to use the catalog and checkout.</p></noscript>
+
+    <div class="row g-0 flex-grow-1">
+
+    <aside class="sidebar col-12 col-lg-2 p-3 p-lg-4">
+        <h3>Genres</h3>
+
+        <ul class="ps-3">
+            <li class="mb-2"><a href="catalog.html?category=Action">Action</a></li>
+            <li class="mb-2"><a href="catalog.html?category=RPG">RPG</a></li>
+            <li class="mb-2"><a href="catalog.html?category=Adventure">Adventure</a></li>
+            <li class="mb-2"><a href="catalog.html?category=Strategy">Strategy</a></li>
+            <li class="mb-2"><a href="catalog.html?category=Simulation">Simulation</a></li>
+        </ul>
+    </aside>
+
+    <main id="main-content" class="col-12 col-lg-10 container-fluid px-2 px-sm-3 px-lg-4 py-3 py-lg-4">
+
+        <section class="intro p-3 mt-lg-4">
+            <h1>Game Catalog</h1>
+            <p>Find your next game by genre or title.</p>
+        </section>
+
+        <section class="catalog-tools p-3 my-3">
+
+            <div class="search-box">
+            <form id="search-form" class="input-group">
+                <label class="visually-hidden" for="game-search">Search for a game</label>
+                <input class="form-control" id="game-search" type="search" placeholder="Search for a game" autocomplete="off"
+                    role="combobox" aria-autocomplete="list" aria-expanded="false"
+                    aria-controls="search-suggestions">
+                <button class="btn btn-primary" type="submit">Search</button>
+            </form>
+            <ul id="search-suggestions" class="search-suggestions" role="listbox"
+                aria-label="Game suggestions" hidden></ul>
+            </div>
+
+            <div class="filter-row mt-3">
+                <div><label for="category-filter">Genre</label>
+                    <select id="category-filter" class="form-select">
+                        <option value="all">All genres</option><option>Action</option><option>RPG</option>
+                        <option>Adventure</option><option>Strategy</option><option>Simulation</option>
+                    </select>
+                </div>
+                <div><label for="price-filter">Price</label>
+                    <select id="price-filter" class="form-select">
+                        <option value="all">All prices</option><option value="under25">Under $25</option>
+                        <option value="25to40">$25 to $40</option><option value="over40">Over $40</option>
+                    </select>
+                </div>
+                <button id="reset-filters" class="btn btn-outline-light" type="button">Reset filters</button>
+            </div>
+            <p id="result-count" class="mt-3 mb-0" role="status"></p>
+            <p class="demo-note">Demo products and prices for this student project.</p>
+        </section>
+
+        <section class="mt-4">
+
+            <h2>Available Games</h2>
+
+            <div id="catalog-grid" class="row g-3"></div>
+            <p id="no-results" class="empty-state" hidden>No games match these filters. Try another genre or reset the filters.</p>
+        </section>
+
+        <section class="gallery-section mt-4">
+
+            <h2>Game Gallery</h2>
+
+            <figure class="gallery-preview-box">
+                <img id="gallery-preview" src="../images/placeholder.svg" data-src="../images/game1.jpg" alt="Cyber Quest">
+                <figcaption id="gallery-caption">Cyber Quest</figcaption>
+            </figure>
+            <p>Choose a thumbnail to preview a game.</p>
+            <div class="gallery">
+
+                <button class="gallery-item gallery-thumb" type="button" aria-pressed="true" aria-label="Preview Cyber Quest">
+                    <img src="../images/placeholder.svg" data-src="../images/game1.jpg" alt="Cyber Quest">
+                    <span class="gallery-title">Cyber Quest</span>
+                </button>
+
+                <button class="gallery-item gallery-thumb" type="button" aria-pressed="false" aria-label="Preview Dragon Realm">
+                    <img src="../images/placeholder.svg" data-src="../images/game2.jpg" alt="Dragon Realm">
+                    <span class="gallery-title">Dragon Realm</span>
+                </button>
+
+                <button class="gallery-item gallery-thumb" type="button" aria-pressed="false" aria-label="Preview Space Raiders">
+                    <img src="../images/placeholder.svg" data-src="../images/game3.jpg" alt="Space Raiders">
+                    <span class="gallery-title">Space Raiders</span>
+                </button>
+
+                <button class="gallery-item gallery-thumb" type="button" aria-pressed="false" aria-label="Preview GTA VI">
+                    <img src="../images/placeholder.svg" data-src="../images/game4.jpg" alt="GTA VI">
+                    <span class="gallery-title">GTA VI</span>
+                </button>
+
+                <button class="gallery-item gallery-thumb" type="button" aria-pressed="false" aria-label="Preview Baldur's Gate 3">
+                    <img src="../images/placeholder.svg" data-src="../images/game5.jpg" alt="Baldur's Gate 3">
+                    <span class="gallery-title">Baldur's Gate 3</span>
+                </button>
+
+                <button class="gallery-item gallery-thumb" type="button" aria-pressed="false" aria-label="Preview Minecraft">
+                    <img src="../images/placeholder.svg" data-src="../images/game6.jpg" alt="Minecraft">
+                    <span class="gallery-title">Minecraft</span>
+                </button>
+
+                <button class="gallery-item gallery-thumb" type="button" aria-pressed="false" aria-label="Preview Elden Ring">
+                    <img src="../images/placeholder.svg" data-src="../images/game7.jpg" alt="Elden Ring">
+                    <span class="gallery-title">Elden Ring</span>
+                </button>
+
+                <button class="gallery-item gallery-thumb" type="button" aria-pressed="false" aria-label="Preview The Witcher 3">
+                    <img src="../images/placeholder.svg" data-src="../images/game8.jpg" alt="The Witcher 3">
+                    <span class="gallery-title">The Witcher 3</span>
+                </button>
+
+                <button class="gallery-item gallery-thumb" type="button" aria-pressed="false" aria-label="Preview Hollow Knight">
+                    <img src="../images/placeholder.svg" data-src="../images/game9.jpg" alt="Hollow Knight">
+                    <span class="gallery-title">Hollow Knight</span>
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    </div>
+
+    <footer class="py-3 px-2">
+        <p>&copy; 2026 GameStore. Team: Islam, Bekzat</p>
+    </footer>
+
+</div>
+
+<div id="status-message" class="status-message" role="status" aria-live="polite" aria-atomic="true"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/script.js"></script>
+<script src="../js/assignment5.js"></script>
+</body>
+</html>

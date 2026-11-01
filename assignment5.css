@@ -1,0 +1,93 @@
+/* Новые элементы Assignment 5. Старые стили оставлены в style.css. */
+[hidden] { display: none !important; }
+:root { color-scheme: dark; }
+body { transition: background-color .25s ease, color .25s ease; }
+a, button, input, select, textarea { touch-action: manipulation; }
+:focus-visible { outline: 3px solid #aabdff; outline-offset: 4px; }
+.skip-link { position: absolute; top: -100px; left: 12px; z-index: 3000; padding: 10px; background: #fff; color: #111; }
+.skip-link:focus { top: 10px; }
+.site-tools { display: flex; align-items: center; justify-content: flex-end; gap: 12px; padding: 12px 24px; background: #1b1d2b; border-bottom: 1px solid #333650; }
+.demo-label { margin-right: auto; color: #bdc5e9; font-size: 14px; }
+.cart-count { display: inline-flex; align-items: center; justify-content: center; min-width: 22px; padding: 0 5px; border-radius: 12px; background: #4053b5; color: #fff; font-size: 13px; }
+.demo-note { font-size: 14px; color: #bac2df; margin-top: 12px; }
+.storage-notice { padding: 12px 24px; margin: 0; background: #493b1b; color: #fff2c9; }
+.status-message { position: fixed; bottom: 20px; right: 20px; z-index: 2200; max-width: min(440px, calc(100vw - 40px)); padding: 16px 20px; border-radius: 10px; border: 1px solid #6376c9; background: #242c4d; color: #fff; box-shadow: 0 8px 24px #0005; opacity: 0; transform: translateY(20px); transition: opacity .2s ease, transform .2s ease; pointer-events: none; }
+.status-message.visible { opacity: 1; transform: translateY(0); }
+.filter-row { display: flex; gap: 16px; align-items: flex-end; flex-wrap: wrap; }
+.filter-row > div { flex: 1; min-width: 150px; }
+.filter-row label { display: block; margin-bottom: 6px; }
+.empty-state { padding: 24px; margin-top: 16px; border: 1px dashed #7c8dde; border-radius: 8px; }
+.game-card, .catalog-card { transition: transform .2s ease, border-color .2s ease; }
+.catalog-card:hover { transform: translateY(-4px); }
+.game-card h3 { margin-top: 12px; }
+.team-card { gap: 20px; }
+.rating-panel { border: 1px solid #333650; border-radius: 10px; background: #1b1d2b; }
+.rating-stars { display: flex; gap: 8px; }
+.rating-star { border: 1px solid #6873a2; border-radius: 8px; background: transparent; color: #97a0c5; width: 48px; height: 48px; font-size: 32px; line-height: 1; transition: color .2s, transform .2s; }
+.rating-star.selected { color: #ffd166; }
+.rating-star:hover { transform: scale(1.12); }
+#rating-message { margin: 12px 0 0; }
+.gallery-preview-box { margin-top: 16px; border: 1px solid #333650; border-radius: 10px; overflow: hidden; background: #1b1d2b; }
+#gallery-preview { display: block; width: 100%; height: 350px; object-fit: contain; background: #101119; }
+#gallery-caption { padding: 12px 16px; font-size: 18px; }
+.gallery-thumb { padding: 0; border: 3px solid transparent; overflow: hidden; border-radius: 8px; background: #1b1d2b; color: #fff; text-align: left; transition: border-color .2s; }
+.gallery-thumb[aria-pressed="true"] { border-color: #91a4ff; }
+.gallery-title { display: block; padding: 8px 10px; }
+.checkout-progress { display: flex; gap: 12px; list-style-position: inside; padding: 0; margin-top: 24px; flex-wrap: wrap; }
+.step-label { border-bottom: 3px solid #333650; padding: 10px 4px; color: #b5bad0; }
+.step-label.current { border-color: #99adff; color: #fff; }
+.checkout-step > label { display: block; }
+.checkout-step h3 { font-size: 21px; }
+.checkout-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.order-summary { white-space: pre-line; overflow-wrap: anywhere; padding: 18px; border-radius: 8px; background: #12131c; line-height: 1.8; }
+#order-status:not(:empty) { padding: 16px; background: #174b3b; border-radius: 8px; color: #edfff4; }
+[aria-invalid="true"] { border: 2px solid #ff6b6b; }
+.just-added { animation: added-to-cart .45s ease; }
+.popup-overlay.show .popup-box { animation: popup-in .2s ease; }
+@keyframes added-to-cart { 50% { transform: scale(.97); border-color: #a5b7ff; box-shadow: 0 0 0 3px #7c8dde55; } }
+@keyframes popup-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Светлая тема использует те же страницы и карточки. */
+body.light-theme { color-scheme: light; background: #f1f3fa; color: #20273b; }
+.light-theme h1, .light-theme h2, .light-theme h3 { color: #182340; }
+.light-theme a { color: #2b448f; }
+.light-theme .site-header, .light-theme .site-tools, .light-theme .sidebar,
+.light-theme .game-card, .light-theme .catalog-card, .light-theme .catalog-tools,
+.light-theme .checkout, .light-theme .team-member, .light-theme .team-card,
+.light-theme .rating-panel, .light-theme .popup-box, .light-theme .accordion-item,
+.light-theme .accordion-question, .light-theme .gallery-preview-box, .light-theme .gallery-thumb { background: #fff; border-color: #d0d7e9; color: #20273b; }
+.light-theme .intro p, .light-theme .game-card p, .light-theme .demo-note,
+.light-theme .demo-label, .light-theme .accordion-answer p { color: #53617d; }
+.light-theme .navbar { --bs-navbar-color: #455575; --bs-navbar-hover-color: #172a60; --bs-navbar-active-color: #172a60; --bs-navbar-brand-color: #182340; --bs-navbar-brand-hover-color: #182340; --bs-navbar-toggler-border-color: #7a86a3; }
+.light-theme .navbar-toggler-icon { filter: invert(1); }
+.light-theme .nav-link.active { font-weight: bold; text-decoration: underline; }
+.light-theme .btn-outline-light { color: #2b448f; border-color: #6376a9; }
+.light-theme .btn-outline-light:hover { background: #dfe7ff; }
+.light-theme .btn-primary { color: #fff; }
+.light-theme .btn-secondary { color: #fff; }
+.light-theme .table-dark { --bs-table-color: #20273b; --bs-table-bg: #fff; --bs-table-striped-bg: #eaf0fb; --bs-table-striped-color: #20273b; --bs-table-border-color: #cbd4e7; }
+.light-theme .popup-close { color: #20273b; }
+.light-theme .accordion-question:hover { background: #eaf0fb; }
+.light-theme .rating-star.selected { color: #8f5e00; }
+.light-theme .rating-star { color: #63718c; }
+.light-theme .order-summary { background: #edf1fa; }
+.light-theme .step-label { color: #53617d; }
+.light-theme .step-label.current { color: #213c91; border-color: #405ac6; }
+.light-theme .error-msg { color: #b32036; }
+.light-theme footer { background: #e0e6f2; color: #425474; }
+.carousel-caption h3 { color: #fff; }
+@media (max-width: 575px) {
+    .site-tools { padding: 12px; gap: 8px; flex-wrap: wrap; }
+    .demo-label { flex-basis: 100%; }
+    .filter-row { flex-direction: column; align-items: stretch; }
+    .filter-row > div { min-width: 0; }
+    #gallery-preview { height: 230px; }
+    .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+    .gallery-thumb img { height: 115px; }
+    .gallery-title { font-size: 13px; }
+    .checkout-progress { gap: 8px; font-size: 14px; }
+}
+/* Если человек отключил анимации в системе, сайт учитывает это. */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
